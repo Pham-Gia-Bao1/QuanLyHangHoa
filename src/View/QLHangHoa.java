@@ -1,4 +1,4 @@
-package QuanLyHangHoa;
+package View;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
@@ -16,6 +16,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.AncestorListener;
 import javax.swing.table.DefaultTableModel;
+import QuanLyHangHoa.*;
 
 import Database.JDBCConnection;
 
@@ -185,7 +186,7 @@ public class QLHangHoa extends JFrame implements ActionListener,MouseListener{
 		sv.setHorizontalAlignment(SwingConstants.RIGHT);
 		p.add(sv);
 		
-		JLabel svk = new JLabel(" NGUYỄN NGỌC CHIẾN");
+		JLabel svk = new JLabel("Pham Gia Bảo - Hồ Thị Mái - PNV25A");
 		svk.setFont(new Font("Tahoma", Font.BOLD, 13));
 		svk.setBackground(new Color(51, 255, 255));
 		svk.setForeground(new Color(255, 0, 0));
@@ -193,21 +194,7 @@ public class QLHangHoa extends JFrame implements ActionListener,MouseListener{
 		p.add(svk);
 		
 		p.add(bThongKeTime);
-		
-		JLabel svid = new JLabel("MÃ SV : ");
-		svid.setFont(new Font("Tahoma", Font.BOLD, 13));
-		svid.setBackground(new Color(51, 255, 255));
-		svid.setForeground(new Color(255, 0, 0));
-		svid.setHorizontalAlignment(SwingConstants.RIGHT);
-		p.add(svid);
-		
-		JLabel svl = new JLabel(" 22IT035");
-		svl.setFont(new Font("Tahoma", Font.BOLD, 13));
-		svl.setBackground(new Color(51, 255, 255));
-		svl.setForeground(new Color(255, 0, 0));
-		svl.setHorizontalAlignment(SwingConstants.LEFT);
-		p.add(svl);
-		
+	
 		this.add(p,BorderLayout.SOUTH);
 		setLocation(300,100);
 		setSize(800,500);

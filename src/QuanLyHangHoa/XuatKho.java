@@ -36,7 +36,7 @@ public class XuatKho extends JFrame implements ActionListener{
 		t2 = new JTextField();
 		l3 = new JLabel("NgayXuat");
 		l3.setHorizontalAlignment(SwingConstants.CENTER);
-		t3 = new JTextField("00-00-0000");
+		t3 = new JTextField("0000-00-00");
 		p1.setLayout(new GridLayout(3,2));
 		p1.add(l1);
 		p1.add(t1);
@@ -44,7 +44,7 @@ public class XuatKho extends JFrame implements ActionListener{
 		p1.add(t2);
 		p1.add(l3);
 		ng = new JDateChooser();
-		ng.setDateFormatString("dd-MM-yyyy");
+		ng.setDateFormatString("yyyy-MM-dd");
 		p1.add(ng);
 		this.add(p1,"North");
 		
@@ -66,7 +66,7 @@ public class XuatKho extends JFrame implements ActionListener{
 			int id = Integer.valueOf(t1.getText());
 			int soLuong = Integer.valueOf(t2.getText());
 			//String ngayXuat = t3.getText();
-			DateFormat gg = new SimpleDateFormat("dd-MM-yyyy");
+			DateFormat gg = new SimpleDateFormat("yyyy-MM-dd");
 			
 			String ngayXuat = gg.format(ng.getDate());
 			

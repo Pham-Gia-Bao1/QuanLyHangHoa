@@ -5,10 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
-
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
+import java.time.chrono.JapaneseDate;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.sql.PreparedStatement;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -18,8 +21,6 @@ import com.toedter.calendar.JDateChooser;
 import Database.JDBCConnection;
 
 public class NhapKho extends JFrame implements ActionListener{
-
-	private static final long serialVersionUID = 1L;
 	JPanel p1,p2;
 	JLabel l1,l2,l3,l4,l5;
 	JTextField t1,t2,t3,t4;
@@ -63,7 +64,7 @@ public class NhapKho extends JFrame implements ActionListener{
 		l5 = new JLabel("Ngay Nhap");
 		l5.setHorizontalAlignment(SwingConstants.CENTER);
 		ng = new JDateChooser();
-		ng.setDateFormatString("dd-MM-yyyy");
+		ng.setDateFormatString("yyyy-MM-dd");
 		
 		
 		p1.add(l5);
@@ -92,11 +93,11 @@ public class NhapKho extends JFrame implements ActionListener{
 			float gia=Float.valueOf(t3.getText());
 			int soLuong=Integer.valueOf(t4.getText());
 			//String ngayNhap = t5.getSelectedItem().toString();
-			DateFormat gg = new SimpleDateFormat("dd-MM-yyyy");
+			DateFormat gg = new SimpleDateFormat("yyyy-MM-dd");
 			
 			String ngayNhap = gg.format(ng.getDate());
 			
-			HangHoa hanghoa = new HangHoa(id, ten, gia, soLuong, soLuong, ngayNhap, 0, "00-00-0000");
+			HangHoa hanghoa = new HangHoa(id, ten, gia, soLuong, soLuong, ngayNhap, 0, "0000-00-00");
 			if((new JDBCConnection().addHangHoa(hanghoa))) {
 				hh.add(hanghoa);
 				dataModel.addRow(new Object[] {hanghoa.getId(),hanghoa.getTen(),hanghoa.getGia(),
@@ -111,9 +112,5 @@ public class NhapKho extends JFrame implements ActionListener{
 		else if(e.getActionCommand().equals("Cancel")) {
 					this.dispose();
 		}
-	}
-	
-	public static void main(String[] args) {
-		NhapKho a = new NhapKho();
 	}
 }
